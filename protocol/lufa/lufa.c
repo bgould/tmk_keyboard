@@ -208,8 +208,10 @@ void EVENT_USB_Device_ConfigurationChanged(void)
     /* Setup Console HID Report Endpoints */
     ConfigSuccess &= ENDPOINT_CONFIG(CONSOLE_IN_EPNUM, EP_TYPE_INTERRUPT, ENDPOINT_DIR_IN,
                                      CONSOLE_EPSIZE, ENDPOINT_BANK_DOUBLE);
+#if 0
     ConfigSuccess &= ENDPOINT_CONFIG(CONSOLE_OUT_EPNUM, EP_TYPE_INTERRUPT, ENDPOINT_DIR_OUT,
                                      CONSOLE_EPSIZE, ENDPOINT_BANK_SINGLE);
+#endif
 #endif
 
 #ifdef NKRO_ENABLE
@@ -270,6 +272,9 @@ void EVENT_USB_Device_ControlRequest(void)
                 // Interface
                 switch (USB_ControlRequest.wIndex) {
                 case KEYBOARD_INTERFACE:
+#ifdef NKRO_ENABLE
+                case NKRO_INTERFACE:
+#endif
                     Endpoint_ClearSETUP();
 
                     while (!(Endpoint_IsOUTReceived())) {
