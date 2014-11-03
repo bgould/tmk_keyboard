@@ -16,7 +16,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include <stdint.h>
 #include <stdbool.h>
-#include <util/delay.h>
+#include "wait.h"
 #include "keycode.h"
 #include "host.h"
 #include "keymap.h"
@@ -291,10 +291,11 @@ static bool command_common(uint8_t code)
             " KEYMAP_SECTION"
 #endif
             " " STR(BOOTLOADER_SIZE) "\n");
-
+#ifdef __AVR__
             print("GCC: " STR(__GNUC__) "." STR(__GNUC_MINOR__) "." STR(__GNUC_PATCHLEVEL__) 
                   " AVR-LIBC: " __AVR_LIBC_VERSION_STRING__
                   " AVR_ARCH: avr" STR(__AVR_ARCH__) "\n");
+#endif
             break;
         case KC_T: // print timer
             print_val_hex32(timer_count);

@@ -20,6 +20,9 @@ host_driver_t teensy_driver = {
     teensy_send_consumer
 };
 
+// TODO: used to display information in command.c; always 0 at the moment 
+uint8_t keyboard_idle = 0;
+
 static uint8_t teensy_keyboard_leds(void)
 {
     return keyboard_leds;

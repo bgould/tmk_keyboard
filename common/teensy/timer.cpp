@@ -1,6 +1,10 @@
 #include "elapsedMillis.h"
 #include "timer.h"
 
+extern "C" {
+volatile uint32_t timer_count = 0;
+}
+
 elapsedMillis elapsed;
 
 void timer_init(void)
