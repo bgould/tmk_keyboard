@@ -14,10 +14,7 @@ int main(void)
     timer_init();
 
 #ifdef CONSOLE_ENABLE
-    debug_enable = true;
-    debug_keyboard = true;
-    debug_mouse = true;
-    while (!Serial) {}
+    while (!Serial) {} // is this necessary on Teensy 3?
 #endif
 
     dprintln("Setting host driver");
