@@ -62,7 +62,7 @@ KEYMAP_FOCUS8000(
     TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,          DEL, END, PGDN,    NO,  P7,  P8,  P9,
     LCTL,A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT,     ENT,                         NO,  P4,  P5,  P6,  PPLS,
     LSFT,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,          RSFT,          UP,           NO,  P1,  P2,  P3,
-    FN0, LGUI,LALT,               SPC,                     RALT,BSLS,CAPS,     LEFT,DOWN,RGHT,    NO,  P0,       PDOT,PENT
+    LCTL,FN0, LALT,               SPC,                     BSLS,FN0, CAPS,     LEFT,DOWN,RGHT,    NO,  P0,       PDOT,PENT
 
 ),
 
@@ -91,15 +91,16 @@ KEYMAP_FOCUS8000(
     TRNS,     TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,     TRNS,TRNS,TRNS,    TRNS,TRNS,TRNS,TRNS,
 
     TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,     TRNS,TRNS,TRNS,    TRNS,TRNS,TRNS,TRNS,TRNS,
-    TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,          TRNS,TRNS,TRNS,    TRNS,BTN1,MS_U,BTN2,
-    TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,LEFT,DOWN,UP,  RGHT,TRNS,TRNS,     TRNS,                        TRNS,MS_L,MS_D,MS_R,WH_U,
+    TRNS,BTN1,MS_U,BTN2,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,          TRNS,TRNS,TRNS,    TRNS,BTN1,MS_U,BTN2,
+    TRNS,MS_L,MS_D,MS_R,TRNS,TRNS,LEFT,DOWN,UP,  RGHT,TRNS,TRNS,     TRNS,                        TRNS,MS_L,MS_D,MS_R,WH_U,
     TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,          TRNS,          TRNS,         TRNS,TRNS,TRNS,TRNS,
-    TRNS,TRNS,TRNS,               TRNS,                    VOLD,MUTE,VOLU,     TRNS,TRNS,TRNS,    TRNS,TRNS,     TRNS,WH_D
+    TRNS,TRNS,TRNS,               TRNS,                    VOLD,TRNS,VOLU,     TRNS,TRNS,TRNS,    TRNS,TRNS,     TRNS,WH_D
 
 ),
 
 };
 
 const uint16_t PROGMEM fn_actions[] = {
-    [0] = ACTION_LAYER_MOMENTARY(1),
+    [0] = ACTION_LAYER_TAP_KEY(1, KC_LGUI),
+    [1] = ACTION_LAYER_TAP_KEY(1, KC_BSLS),
 };

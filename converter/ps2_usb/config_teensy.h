@@ -18,12 +18,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef CONFIG_H
 #define CONFIG_H
 
-#include <avr/interrupt.h>
-
 /* matrix size */
 #define MATRIX_ROWS 32  // keycode bit: 3-0
 #define MATRIX_COLS 8   // keycode bit: 6-4
-
 
 /* key combination for command */
 #define IS_COMMAND() ( \
@@ -31,12 +28,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     keyboard_report->mods == (MOD_BIT(KC_LCTRL) | MOD_BIT(KC_RSHIFT)) \
 )
 
-
 #define NO_SUSPEND_POWER_DOWN
 
 #ifdef PS2_USE_BUSYWAIT
-#define PS2_CLOCK_PIN   5
-#define PS2_DATA_PIN    6
+#define PS2_CLOCK_PIN 1 
+#define PS2_DATA_PIN  0  
 #endif
 
 #endif
